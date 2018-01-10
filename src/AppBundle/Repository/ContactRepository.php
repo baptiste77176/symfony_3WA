@@ -13,6 +13,24 @@ use AppBundle\Entity\Contact;
 class ContactRepository extends \Doctrine\ORM\EntityRepository
 {
 
+    public function testDelete()
+    {
+        $result = $this->getEntityManager()->createQueryBuilder()
+            ->delete(Contact::class, 'contact')
+            ->where('contact.id = :paramId')
+            ->setParameters([
+                'paramId' => 510
+            ])
+            ->getQuery()
+            ->execute()
+        ;
+
+        return $result;
+    }
+    
+
+
+
     public function testUpdate()
     {
         /*
