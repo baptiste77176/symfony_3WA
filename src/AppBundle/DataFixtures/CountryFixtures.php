@@ -17,6 +17,9 @@ class CountryFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+        //faker
+        $faker = \Faker\Factory::create('fr_FR');
+
         /*
          * utilisation des entités
          *  attention chaque insertion des données de ce bundle va vider toutes les tables de la BDD symfony , car le principe est d'insérer des données fctive  pour faire des tests
@@ -24,7 +27,7 @@ class CountryFixtures extends Fixture
         for ($i = 0 ;$i<20;$i++)
         {
             $entity = new Country();
-            $entity->setName('country'.$i);
+            $entity->setName($faker->unique()->country);
         /*
          *   concaténation sans point grace au double cote "
          *   $entity->setName("country$i");

@@ -16,9 +16,9 @@ class DoctrineController extends Controller
      */
     public function indexAction(ManagerRegistry $doctrine):Response
     {
-        //$results = $doctrine->getRepository(Contact::class)->testQuery();
+        $results = $doctrine->getRepository(Contact::class)->testQuery();
         //$results = $doctrine->getRepository(Contact::class)->testUpdate();
-        $results = $doctrine->getRepository(Contact::class)->testDelete();
+       // $results = $doctrine->getRepository(Contact::class)->testDelete();
         dump($results);exit;
     }
 

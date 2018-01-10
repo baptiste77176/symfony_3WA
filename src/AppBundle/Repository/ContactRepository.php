@@ -27,7 +27,7 @@ class ContactRepository extends \Doctrine\ORM\EntityRepository
 
         return $result;
     }
-    
+
 
 
 

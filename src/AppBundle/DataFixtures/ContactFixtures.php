@@ -18,17 +18,18 @@ class ContactFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
+        $faker = \Faker\Factory::create('fr_FR');
         /*
          * utilisation des entités
          *  attention chaque insertion des données de ce bundle va vider toutes les tables de la BDD symfony , car le principe est d'insérer des données fctive  pour faire des tests
          * */
-        for ($i = 0 ;$i<500;$i++)
+        for ($i = 0 ;$i<100;$i++)
         {
             $entity = new Contact();
-            $entity->setFirstname('firstname'.$i);
-            $entity->setLastname('lastname'.$i);
-            $entity->setEmail('email'.$i.'@email.com');
-            $entity->setMessage('yolo');
+            $entity->setFirstname($faker->unique()->firstName);
+            $entity->setLastname($faker->unique()->lastName);
+            $entity->setEmail($faker->unique()->email);
+            $entity->setMessage($faker->unique()->text);
         /*
          *   concaténation sans point grace au double cote "
          *   $entity->setName("country$i");

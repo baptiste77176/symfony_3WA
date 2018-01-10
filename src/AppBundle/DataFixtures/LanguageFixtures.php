@@ -21,10 +21,13 @@ class LanguageFixtures extends Fixture
          * utilisation des entités
          *  attention chaque insertion des données de ce bundle va vider toutes les tables de la BDD symfony , car le principe est d'insérer des données fctive  pour faire des tests
          * */
+        //faker
+        $faker = \Faker\Factory::create('fr_FR');
         for ($i = 0 ;$i<20;$i++)
         {
+
             $entity = new Language();
-            $entity->setName('language'.$i);
+            $entity->setName($faker->unique()->languageCode);
         /*
          *   concaténation sans point grace au double cote "
          *   $entity->setName("country$i");
