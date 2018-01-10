@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<ul class="nav nav-pills">
+                        {% for value in result %}
+
+							<li><a href="{{ url('formation.info',{'id' : value.id}) }}" >{{ value.name }}</a></li>
+
+                        {% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="jumbotron">
+						<h1>HTML CSS</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<h2>List of trainings</h2>
+					<ul class="list-group">
+                        {% for value in modules.formation %}{#formation.module va chercher la relation entre formation et module#}
+							<li class="list-group-item"><a href="#">{{ value.name }}</a></li>
+                        {% endfor %}
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

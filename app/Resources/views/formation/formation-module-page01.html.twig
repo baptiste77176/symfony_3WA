@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	</head>
+	<body>
+		{#<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<ul class="nav nav-pills">
+						{% for value in result %}
+
+							<li><a href="{{ url('formation.info',{'id' : value.id}) }}" >{{ value.name }}</a></li>
+
+						{% endfor %}
+
+
+
+					</ul>
+				</div>
+			</div>#}
+		{{ render_menu() | raw}} {#|raw permet de desactiver la protection xss pour pouvoir afficher du html#}
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="jumbotron">
+						<h1>Hello !</h1>
+						<p>Choose a training in the menu…</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

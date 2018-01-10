@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Twig</h1>
+{{ dump(list) }}
+{#filtre personnaliser#}
+
+{{ 'loRem ipsum sit doLor amet' | slugify }}
+<br>
+{#fonction personnaliser#}
+{{ my_test() }}
+
+{% set postDate = date('2012-08-12') %}
+{% set dateDiff = date_diff(postDate) %}
+ Ecrit il y a {{ dateDiff.y }}ans, {{ dateDiff.m }} mois et {{ dateDiff.d }}jours
+{#
+    app : accés au informations de l'application
+
+        app.request : requette http
+        app.user : utilisateur (recupere les infos de l'user connecter)
+        app.
+#}
+{{ dump(app.request.headers.get("host")) }}
+{{ dump(app.environment("host")) }}
+
+{# filtre : utilisation #}
+<p>{{ 'coucou '| upper }}</p>
+
+<p>{{ list | length }}</p>
+{#
+    date :
+        date():creation d'une date
+        | date : affichage d'une date
+#}
+
+{% set now = date('now') %}
+<p> {{ 'Nous somme le' ~  now |date }}</p>
+
+<ul>
+{% for key, value in list %}
+    <li>{{ value~'-'~key }} </li>
+{% endfor %}
+</ul>
+
+<lu>{% for i in 'a'..'z' %}
+       <li> l'indice est de {{ i }}</li>
+
+    {% endfor %}
+</lu>
+
+<ul>
+    {% for i in 1..10 %}
+        <li> l'indice est de {{ i }}</li>
+    {% endfor %}
+</ul>
+
+{% set meteo = 'tempete' %}
+{% if meteo == 'tempete' %}
+    <p>"Attention !"</p>
+    {% else %}
+    <p>c'est bon </p>
+{% endif %}
+
+</body>
+</html>

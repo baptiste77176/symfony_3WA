@@ -1,0 +1,35 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    </head>
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Members</h1>
+                <table class="table table-striped">
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+
+                        {% for key, value in tab %}
+                        <tr>
+                            <td>{{ value.name }}</td>
+                            <td>{{ value.firstname }}</td>
+                            <td><a href="{{ path('members.userId',{'id' : key}) }}" class="btn btn-primary">Details</a></td>
+                        </tr>
+                        {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>

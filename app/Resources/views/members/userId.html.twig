@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <h1>{{ tab.name }}</h1>
+                <div class="col-xs-2">
+                    <img src="{{ asset("img/"~tab.photo)}}" class="img-responsive img-circle" />
+                </div>
+                <div class="col-xs-10">
+                    <p><strong class="text-uppercase">First name :</strong> {{ tab.name }}</p>
+                    <p><strong class="text-uppercase">Last name :</strong> {{ tab.firstname }}</p>
+                    <p><strong class="text-uppercase">Email :</strong> <a href={{ tab.mail }}>{{ tab.mail }}</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <a href={{ path('members.userId') }} class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

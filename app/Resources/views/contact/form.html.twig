@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{#
+    fonction twig :
+        form_start: crée la balise <form>
+        form_end : ferme la balise form
+        form_label : crée l'intitulé d'un champ
+        form_widget : création d'un champ
+        form_errors : erreur d'un champ
+     le bouton de soumission est a créer
+     la variable form est envoyer par le controleur
+#}
+
+
+        {# on renome le label et input avec form label et widget#}
+<div class="row">
+    <div class="col">
+            {{ form_start(form,{'attr' : {'novalidate' : 'novalidate'}}) }}
+
+        <p>
+
+            {{ form_label(form.firstname,'Prénom : ') }}
+            {{ form_widget(form.firstname,{'attr' : {'placeholder' : 'rentrez votre prénom', 'autofocus' : 'autofocus'}}) }}
+        </p>
+
+        <p>
+            {{ form_label(form.lastname,'Nom : ') }}
+            {{ form_widget(form.lastname,{'attr' : {'placeholder' : 'rentrez votre nom', 'autofocus' : 'autofocus'}}) }}
+        </p>
+
+        <p>
+            {{ form_label(form.email,'Mail : ') }}
+            {{ form_widget(form.email,{'attr' : {'placeholder' : 'rentrez votre email', 'autofocus' : 'autofocus'}}) }}
+        </p>
+
+        <p>
+            {{ form_label(form.message,'Message : ') }}
+            {{ form_widget(form.message,{'attr' : {'placeholder' : 'rentrez votre message', 'autofocus' : 'autofocus'}}) }}
+        </p>
+        <p>
+            {{ form_label(form.country,'Pays : ') }}
+            {{ form_widget(form.country) }}
+        </p>
+        <p>
+            {{ form_label(form.languages,'Langues parlés : ') }}
+            {{ form_widget(form.languages) }}
+        </p>
+
+        <p>
+            <input type="submit" name="" value="Valider">
+        </p>
+        {{ form_errors(form.firstname) }}
+        {{ form_errors(form.lastname) }}
+        {{ form_errors(form.email) }}
+        {{ form_errors(form.message) }}
+        {{ form_errors(form.country) }}
+        {{ form_errors(form.languages) }}
+
+
+            {{form_end(form)  }}
+
+    </div>
+</div>
+
+{% endblock %}

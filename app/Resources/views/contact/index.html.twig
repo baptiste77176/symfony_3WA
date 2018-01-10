@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Contact</h1>
+
+    {% for notice in app.flashes('notice') %}
+        <p class="alert-success">{{ notice }}</p>
+    {% endfor %}
+
+    {#lien vers l'url de la route #}
+    <p><a href="{{ url('contact.form') }}" class="btn btn-primary"> Ajouter</a></p>
+    <table class="table table-striped">
+        <tr>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>pays</th>
+            <th>langues parlées</th>
+        </tr>
+        {%  for result in result  %}
+            <tr>
+{#recupere les data du tableau result et affiche les attributs de chaque data selectionnées#}
+                <td>{{ result.firstname }}</td>
+                <td>{{ result.lastname }}</td>
+                <td>{{ result.email }}</td>
+                <td>{{ result.message }}</td>
+
+                {#le ternaire an pas besoin de {%  %} car il ne fait que afficher#}
+                <td>{{ result.country ? result.country.name : 'non défini' }}</td>
+                <td>
+                    {% if result.languages | length > 0 %}
+                        {% for languages in result.languages %}
+                            {{ languages.name }}
+                        {% endfor %}
+                    {% else %}
+                        Inconnues
+                    {%endif  %}
+                </td>
+                <td><a href="{{ url('contact.form.delete',{'id' : result.id}) }}" class="btn btn-danger">supprimer</a></td>
+                <td>
+                    <a href="{{ url('contact.form.update',{'id' : result.id}) }}"class="btn btn-warning">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}

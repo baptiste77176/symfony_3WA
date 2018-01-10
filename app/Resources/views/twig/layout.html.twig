@@ -1,0 +1,36 @@
+{# extends : héritage d'un template parent#}
+{% extends 'parent.html.twig' %}
+
+{# bloc main#}
+{% block main %}
+
+    <div class="col-ms-8">main</div>
+{#
+
+lien :
+fonction :
+    url: lien absolu
+    path : lien relatif
+    - cibler le nom unique des route créé dans l'annotation @Route (" ;, name="nom")
+    -second parametre permet d'assigner une valeur aux variable d'url
+
+#}
+
+    <a href="{{ url('default.index') }}">Acceuil</a>
+    <br>
+    <a href="{{ path('default.hello',{'firstname' : 'toto'}) }}">Acceuil</a>
+{{ code_GA }}
+{% endblock %}
+
+{#bloc aside#}
+{% block aside %}
+
+    <div class="col-sm-4">aside</div>
+
+{% endblock %}
+
+{#title#}
+{% block title %}
+    {# parent : recupération du contenu du bloc parent#}
+   {{ parent() }} - mise en page
+{% endblock %}
