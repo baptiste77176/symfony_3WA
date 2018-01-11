@@ -1,0 +1,5 @@
+content:
+    text: mon texte
+    butttons:
+        submit: valider
+    remplacement: bonjour %name%, comment ca va ?

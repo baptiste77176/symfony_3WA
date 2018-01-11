@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {#
+   accéder a la locale : app.request.locale
+       filtre trans : permet de cibler une clée de traduction
+           par default : recherche dans le domaine "messages"
+           1er parametre : texte de remplacement
+           2em parametre : le domaine ( par default message)
+   #}
+<h1>Traduction</h1>
+
+<p>{{'content.text' | trans }}</p>
+    <button>{{ 'content.butttons.submit' | trans | capitalize }}</button>
+   <p> {{ app.request.locale }}</p>
+    <p>{{'content.remplacement' | trans({'%name%' : 'Harry Cover'})}}</p>
+    <p>{{'title' |trans({},'admin') }}</p>
+    <time>{{ now | localizeddate('full') }}</time>
+    <p>{{ 20000.99 |localizednumber('spellout') }}</p>
+    <p>{{ 20000.99 |localizedcurrency('EUR') }}</p>
+    <p>{{ 20000.99 |localizedcurrency('GBP') }}</p>
+{% endblock %}

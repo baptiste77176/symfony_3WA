@@ -1,0 +1,5 @@
+content:
+    text: my text
+    butttons:
+        submit: submit
+    remplacement: hello %name%, how are you ?

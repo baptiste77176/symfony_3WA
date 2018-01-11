@@ -33,3 +33,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    # activer les extensions twig
+    Twig_Extensions_Extension_Intl:
+        class: Twig_Extensions_Extension_Intl
